@@ -3,6 +3,9 @@ import numpy as np
 from tensorflow.keras.models import load_model
 from pathlib import Path
 
+# ✅ This must come before any other Streamlit commands
+st.set_page_config(page_title="Diabetes Risk Prediction", layout="centered")
+
 # --- Load the model ---
 @st.cache_resource
 def load_model_once():
@@ -13,7 +16,6 @@ model = load_model_once()
 
 # --- App UI ---
 def main():
-    st.set_page_config(page_title="Diabetes Risk Prediction", layout="centered")
     st.title("🩺 Diabetes Risk Prediction (Full Model)")
     st.markdown("This model uses all available health information to predict diabetes risk.")
 
